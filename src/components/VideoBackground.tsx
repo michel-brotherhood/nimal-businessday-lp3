@@ -12,7 +12,11 @@ const VideoBackground = () => {
       >
         <source src={backgroundVideo} type="video/mp4" />
       </video>
-      <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/70" />
+      {/* Gradiente específico para realçar texto */}
+      <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/30 to-black/70" />
+      {/* Vignette para realçar centro */}
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_0%,black_100%)] opacity-40" />
+      {/* Sombreamento geral suave */}
       <div className="absolute inset-0 bg-black/20" />
     </div>
   );
