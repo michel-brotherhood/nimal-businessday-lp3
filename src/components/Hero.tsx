@@ -15,7 +15,7 @@ const Hero = () => {
         }`}
       >
         {/* Event Title */}
-        <p className="text-sm sm:text-base font-light text-primary mb-6 sm:mb-8 tracking-widest uppercase drop-shadow-[0_0_15px_rgba(255,59,59,0.6)] transition-all duration-500 hover:drop-shadow-[0_0_20px_rgba(255,59,59,0.8)]">
+        <p className="text-sm sm:text-base font-light text-primary mb-6 sm:mb-8 tracking-widest uppercase animate-pulse-slow drop-shadow-[0_0_15px_rgba(255,59,59,0.6)]">
           Business Day 2025
         </p>
 

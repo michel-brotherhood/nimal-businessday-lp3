@@ -23,12 +23,12 @@ const Evolution = () => {
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
 
   return (
-    <section className="py-0 sm:py-2 lg:py-4 px-4 relative z-10">
+    <section className="py-2 sm:py-4 lg:py-6 px-4 relative z-10">
       <div className="max-w-7xl mx-auto">
         {/* IOT and RFID Introduction */}
         <div 
           ref={contentRef}
-          className={`max-w-5xl mx-auto mb-0 sm:mb-2 transition-all duration-1000 delay-200 ${
+          className={`max-w-5xl mx-auto mb-6 sm:mb-8 transition-all duration-1000 delay-200 ${
             contentVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
           }`}
         >
