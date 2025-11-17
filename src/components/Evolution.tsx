@@ -28,7 +28,7 @@ const Evolution = () => {
         {/* IOT and RFID Introduction */}
         <div 
           ref={contentRef}
-          className={`max-w-5xl mx-auto mb-4 sm:mb-6 transition-all duration-1000 delay-200 ${
+          className={`max-w-5xl mx-auto mb-2 sm:mb-4 transition-all duration-1000 delay-200 ${
             contentVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
           }`}
         >
