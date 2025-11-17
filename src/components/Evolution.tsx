@@ -18,7 +18,7 @@ const Evolution = () => {
   const { ref: ambevRef, isVisible: ambevVisible } = useScrollAnimation();
 
   return (
-    <section className="py-6 sm:py-10 lg:py-14 px-4 relative z-10">
+    <section className="py-2 sm:py-4 lg:py-6 px-4 relative z-10">
       <div className="max-w-7xl mx-auto">
         {/* IOT and RFID Introduction */}
         <div 
