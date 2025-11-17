@@ -15,7 +15,7 @@ const Hero = () => {
         }`}
       >
         {/* Event Title */}
-        <p className="text-sm sm:text-base font-light text-primary mb-4 sm:mb-6 tracking-wide">
+        <p className="text-base sm:text-lg md:text-xl font-light text-primary mb-6 sm:mb-8 tracking-wider uppercase animate-fade-in">
           Business Day 2025
         </p>
 
