@@ -11,11 +11,16 @@ import ambev2 from "@/assets/ambev-2.jpeg";
 import ambev3 from "@/assets/ambev-3.jpeg";
 import ambev4 from "@/assets/ambev-4.jpeg";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
+import { useState } from "react";
+import {
+  Dialog,
+  DialogContent,
+  DialogTrigger,
+} from "@/components/ui/dialog";
 
 const Evolution = () => {
   const { ref: contentRef, isVisible: contentVisible } = useScrollAnimation();
-  const { ref: nissanRef, isVisible: nissanVisible } = useScrollAnimation();
-  const { ref: ambevRef, isVisible: ambevVisible } = useScrollAnimation();
+  const [selectedImage, setSelectedImage] = useState<string | null>(null);
 
   return (
     <section className="py-2 sm:py-4 lg:py-6 px-4 relative z-10">
@@ -51,12 +56,7 @@ const Evolution = () => {
         </div>
 
         {/* Cases Nissan */}
-        <div 
-          ref={nissanRef}
-          className={`mb-16 sm:mb-20 transition-all duration-1000 delay-400 ${
-            nissanVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-          }`}
-        >
+        <div className="mb-16 sm:mb-20">
           <div className="bg-card/80 backdrop-blur-md border border-border rounded-xl p-6 sm:p-8 lg:p-10">
             <div className="flex items-center justify-center mb-8">
               <img 
@@ -69,59 +69,32 @@ const Evolution = () => {
               Cases
             </h3>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
-              <div className="bg-background/50 rounded-lg overflow-hidden border border-border transition-transform duration-300 hover:scale-105 hover:shadow-xl cursor-pointer">
-                <img 
-                  src={nissan1} 
-                  alt="Case Nissan 1" 
-                  className="w-full h-64 object-cover"
-                />
-              </div>
-              <div className="bg-background/50 rounded-lg overflow-hidden border border-border transition-transform duration-300 hover:scale-105 hover:shadow-xl cursor-pointer">
-                <img 
-                  src={nissan2} 
-                  alt="Case Nissan 2" 
-                  className="w-full h-64 object-cover"
-                />
-              </div>
-              <div className="bg-background/50 rounded-lg overflow-hidden border border-border transition-transform duration-300 hover:scale-105 hover:shadow-xl cursor-pointer">
-                <img 
-                  src={nissan3} 
-                  alt="Case Nissan 3" 
-                  className="w-full h-64 object-cover"
-                />
-              </div>
-              <div className="bg-background/50 rounded-lg overflow-hidden border border-border transition-transform duration-300 hover:scale-105 hover:shadow-xl cursor-pointer">
-                <img 
-                  src={nissan4} 
-                  alt="Case Nissan 4" 
-                  className="w-full h-64 object-cover"
-                />
-              </div>
-              <div className="bg-background/50 rounded-lg overflow-hidden border border-border transition-transform duration-300 hover:scale-105 hover:shadow-xl cursor-pointer">
-                <img 
-                  src={nissan5} 
-                  alt="Case Nissan 5" 
-                  className="w-full h-64 object-cover"
-                />
-              </div>
-              <div className="bg-background/50 rounded-lg overflow-hidden border border-border transition-transform duration-300 hover:scale-105 hover:shadow-xl cursor-pointer">
-                <img 
-                  src={nissan6} 
-                  alt="Case Nissan 6" 
-                  className="w-full h-64 object-cover"
-                />
-              </div>
+              {[nissan1, nissan2, nissan3, nissan4, nissan5, nissan6].map((image, index) => (
+                <Dialog key={index}>
+                  <DialogTrigger asChild>
+                    <div className="bg-background/50 rounded-lg overflow-hidden border border-border transition-transform duration-300 hover:scale-105 hover:shadow-xl cursor-pointer">
+                      <img 
+                        src={image} 
+                        alt={`Case Nissan ${index + 1}`} 
+                        className="w-full h-64 object-cover"
+                      />
+                    </div>
+                  </DialogTrigger>
+                  <DialogContent className="max-w-5xl w-[95vw] h-[90vh] p-2">
+                    <img 
+                      src={image} 
+                      alt={`Case Nissan ${index + 1}`} 
+                      className="w-full h-full object-contain"
+                    />
+                  </DialogContent>
+                </Dialog>
+              ))}
             </div>
           </div>
         </div>
 
         {/* Cases Ambev */}
-        <div 
-          ref={ambevRef}
-          className={`mb-16 sm:mb-20 transition-all duration-1000 delay-500 ${
-            ambevVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-          }`}
-        >
+        <div className="mb-16 sm:mb-20">
           <div className="bg-card/80 backdrop-blur-md border border-border rounded-xl p-6 sm:p-8 lg:p-10">
             <div className="flex items-center justify-center mb-8">
               <img 
@@ -134,34 +107,26 @@ const Evolution = () => {
               Cases
             </h3>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
-              <div className="bg-background/50 rounded-lg overflow-hidden border border-border transition-transform duration-300 hover:scale-105 hover:shadow-xl cursor-pointer">
-                <img 
-                  src={ambev1} 
-                  alt="Case Ambev 1" 
-                  className="w-full h-80 object-cover"
-                />
-              </div>
-              <div className="bg-background/50 rounded-lg overflow-hidden border border-border transition-transform duration-300 hover:scale-105 hover:shadow-xl cursor-pointer">
-                <img 
-                  src={ambev2} 
-                  alt="Case Ambev 2" 
-                  className="w-full h-80 object-cover"
-                />
-              </div>
-              <div className="bg-background/50 rounded-lg overflow-hidden border border-border transition-transform duration-300 hover:scale-105 hover:shadow-xl cursor-pointer">
-                <img 
-                  src={ambev3} 
-                  alt="Case Ambev 3" 
-                  className="w-full h-80 object-cover"
-                />
-              </div>
-              <div className="bg-background/50 rounded-lg overflow-hidden border border-border transition-transform duration-300 hover:scale-105 hover:shadow-xl cursor-pointer">
-                <img 
-                  src={ambev4} 
-                  alt="Case Ambev 4" 
-                  className="w-full h-80 object-cover"
-                />
-              </div>
+              {[ambev1, ambev2, ambev3, ambev4].map((image, index) => (
+                <Dialog key={index}>
+                  <DialogTrigger asChild>
+                    <div className="bg-background/50 rounded-lg overflow-hidden border border-border transition-transform duration-300 hover:scale-105 hover:shadow-xl cursor-pointer">
+                      <img 
+                        src={image} 
+                        alt={`Case Ambev ${index + 1}`} 
+                        className="w-full h-80 object-cover"
+                      />
+                    </div>
+                  </DialogTrigger>
+                  <DialogContent className="max-w-5xl w-[95vw] h-[90vh] p-2">
+                    <img 
+                      src={image} 
+                      alt={`Case Ambev ${index + 1}`} 
+                      className="w-full h-full object-contain"
+                    />
+                  </DialogContent>
+                </Dialog>
+              ))}
             </div>
           </div>
         </div>
